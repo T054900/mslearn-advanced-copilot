@@ -11,6 +11,47 @@ Gain more practical experience by using this repository that contains a Python W
 1. Enable your [GitHub Copilot service](https://github.com/github-copilot/signup)
 1. Open [this repository with Codespaces](https://codespaces.new/MicrosoftDocs/mslearn-copilot-codespaces-python)
 
+## Run locally
+
+You need Python 3.10 or later. From the repository root, create and activate a
+virtual environment, then install the project dependencies:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+In Windows PowerShell, use these commands to create and activate the
+environment:
+
+```powershell
+py -3.10 -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+Start the API from the repository root:
+
+```bash
+python -m uvicorn main:app --reload
+```
+
+Open [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) to explore the
+API. The root URL, [http://127.0.0.1:8000/](http://127.0.0.1:8000/), redirects
+to the interactive API documentation. For example, the API provides
+`GET /countries`, `GET /countries/Spain`, and
+`GET /countries/Spain/Seville/January`.
+
+Run the tests from the repository root with:
+
+```bash
+python -m pytest -q
+```
+
+In Codespaces, the development container installs the dependencies and starts
+the API automatically; open the forwarded port 8000 to access it.
+
 ## 💪🏽 Exercise
 The current API is not exposing country/{country} which needs to be implemented to list cities. The route should allow only GET HTTP requests with a JSON response providing information from the historical high and low for that country, city, and given month.
 
